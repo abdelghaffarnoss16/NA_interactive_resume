@@ -1,0 +1,30 @@
+---
+- hosts: ansible
+
+  tasks:
+
+    - name: clone repository
+      git:
+        repo: https://github.com/abdelghaffarnoss16/NA_interactive_resume.git
+        dest: /opt/docker/na_resume
+        clone: yes
+        update: yes
+
+    - name: create docker image
+      command: docker build -t na-resume:latest /opt/docker/na_resume
+      args:
+        chdir: /opt/docker/
+
+    - name:  tag docker image
+      command: docker tag na-resume:latest noussairis1/na-resume:latest
+
+    - name: psuh  docker image
+      command: docker push noussairis1/na-resume:latest
+
+
+
+
+
+
+
+
