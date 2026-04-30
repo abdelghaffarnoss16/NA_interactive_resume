@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: na-resume
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: na-resume
+  template:
+    metadata:
+      labels:
+        app: na-resume
+    spec:
+      containers:
+      - name: na-resume
+        image: noussairis1/na-resume:latest
+        ports:
+        - containerPort: 80
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxUnavailable: 1
+        maxSurge: 1
+
+
+
+
