@@ -209,7 +209,7 @@ export default function App() {
   });
 
   const [terminalText, setTerminalText] = useState('');
-  const fullText = '> system_init --user saqlo --role engineer...';
+  const fullText = '> system_init --user lord saqlo --role engineer...';
 
   useEffect(() => {
     let index = 0;
